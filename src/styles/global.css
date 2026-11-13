@@ -223,7 +223,9 @@ section { padding-block: var(--space); }
 .lb-nav { display: flex; gap: .5rem; }
 .lb button { background: none; border: var(--hair) solid rgba(255, 255, 255, .25); border-radius: 62.5rem; padding: .5rem 1rem; font-size: var(--fs-sm); transition: background-color .3s, color .3s; }
 .lb button:hover { background: #fff; color: #000; }
-.lb-stage { display: grid; place-items: center; min-height: 0; padding: 1rem 0; }
+.lb-stage { display: grid; place-items: center; min-height: 0; padding: 1rem 0; position: relative; z-index: 1; }
+/* the photo frame is positioned, so lift the top/bottom bars above it so Close / Prev / Next stay tappable */
+.lb-top, .lb-bot { position: relative; z-index: 2; }
 .lb-stage .ph { height: min(72vh, 48.75rem); aspect-ratio: 4/5; max-width: 100%; border-radius: var(--radius); }
 .lb h5 { font-size: var(--fs-h3); }
 .lb .mono { color: #8d8983; }
@@ -320,7 +322,8 @@ section { padding-block: var(--space); }
   .collage { min-height: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; align-items: start; margin-top: 1rem; }
   .collage .ph, .collage .c1, .collage .c2, .collage .c3, .collage .c4 { position: relative; inset: auto; width: 100%; aspect-ratio: 4/5; }
   .collage .c2, .collage .c4 { margin-top: 2.5rem; }
-  .svc-media { min-height: 0; aspect-ratio: 4/3; }
+  /* explicit height (4:3 of the content width) so the photo shows even where aspect-ratio is unsupported */
+  .svc-media { min-height: 0; aspect-ratio: 4/3; height: calc((100vw - var(--gut) - var(--gutr)) * .75); }
   .slide { flex-basis: calc((100% - 1.5rem) / 2); }
   .stat:nth-child(2) { margin-bottom: 0; }
   .foot-top { grid-template-columns: 1fr 1fr; }
@@ -367,8 +370,12 @@ section { padding-block: var(--space); }
   .collage-track { display: flex; width: max-content; animation: collage-marquee 22s linear infinite; }
   .collage .dup { display: block; }
   .collage .ph, .collage .c1, .collage .c2, .collage .c3, .collage .c4 {
-    width: 10.5rem; margin: 0 .75rem 0 0; flex: none; aspect-ratio: 4/5; box-shadow: none;
+    width: 10.5rem; height: 13.125rem; margin: 0 .75rem 0 0; flex: none; aspect-ratio: 4/5; box-shadow: none;
   }
+  /* lightbox: fit the whole photo inside the free space between the bars */
+  .lb-stage { padding: .75rem 0; }
+  .lb-stage .ph { position: absolute; inset: .75rem 0; width: auto; height: auto; max-width: none; aspect-ratio: auto; background: none; border-radius: 0; }
+  .lb-stage .ph img { object-fit: contain; }
   .collage:active .collage-track { animation-play-state: paused; }
   @media (prefers-reduced-motion: reduce) { .collage-track { animation: none; } }
 

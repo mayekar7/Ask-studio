@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Gallery from '../components/Gallery.astro';
+import Stories from '../components/Stories.astro';
+import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+import Lightbox from '../components/Lightbox.astro';
+---
+<Base>
+  <div class="progress" id="progress"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span>VIEW</span></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <Nav />
+  <Hero />
+  <main>
+    <About />
+    <Services />
+    <Gallery />
+    <Stories />
+    <Cta />
+  </main>
+  <Footer />
+  <Lightbox />
+</Base>

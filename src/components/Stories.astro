@@ -1,0 +1,23 @@
+---
+import FrameTitle from './FrameTitle.astro';
+---
+<!-- TESTIMONIALS SLIDER (slides are built by src/scripts/main.js) -->
+<section id="stories" class="stories light">
+  <div class="wrap">
+    <div class="sec-head">
+      <FrameTitle text="Stories from Clients" />
+      <div class="slider-ctrl">
+        <span class="mono" id="slideCount">01 / 06</span>
+        <button class="sbtn" id="prev" aria-label="Previous story">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="sbtn" id="next" aria-label="Next story">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Client stories">
+      <div class="track" id="track"></div>
+    </div>
+  </div>
+</section>

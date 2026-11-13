@@ -1,0 +1,33 @@
+---
+import Logo from './Logo.astro';
+---
+<!-- NAV -->
+<header class="nav" id="nav">
+  <Logo />
+  <nav class="menu" aria-label="Primary">
+    <ul>
+      <li><a href="#gallery" class="roll">Work</a></li>
+      <li><a href="#about" class="roll">About</a></li>
+      <li><a href="#services" class="roll">Services</a></li>
+      <li><a href="#contact" class="roll">Contact</a></li>
+    </ul>
+  </nav>
+  <span class="nav-loc">Based in India</span>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mnav" id="mnav" hidden>
+  <ul>
+    <li><a href="#gallery"><span>Work</span></a></li>
+    <li><a href="#about"><span>About</span></a></li>
+    <li><a href="#services"><span>Services</span></a></li>
+    <li><a href="#contact"><span>Contact</span></a></li>
+  </ul>
+  <div class="mnav-foot">
+    <span>Based in India</span>
+    <span>+91 98765 43210</span>
+  </div>
+</div>

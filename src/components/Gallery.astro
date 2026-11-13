@@ -1,0 +1,15 @@
+---
+import FrameTitle from './FrameTitle.astro';
+---
+<!-- GALLERY (items are built by src/scripts/main.js) -->
+<section id="gallery" class="light">
+  <div class="wrap">
+    <div class="sec-head">
+      <FrameTitle text="Gallery Frame" />
+      <button class="gal-arrow" id="openGal" aria-label="Open the gallery viewer">
+        <svg viewBox="0 0 70 12" fill="none" stroke="currentColor"><path d="M0 6h68M62 1l6 5-6 5"/></svg>
+      </button>
+    </div>
+    <div class="scatter" id="galleryGrid"></div>
+  </div>
+</section>
